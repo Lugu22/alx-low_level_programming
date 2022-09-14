@@ -1,50 +1,21 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * print_times_table - function to print tables
- * @n : integer values
+ * main - check the code for Holberton School students.
+ *
  * Return: Always 0.
  */
-void print_times_table(int n)
+int main(void)
 {
-	int a, b, c;
+	int a, b = 0;
 
-	if (n > 15 || n < 0)
-		return;
-	for (a = 0; a <= n; a++)
+	for (a = 0; a < 1024; a++)
 	{
-		for (b = 0; b <= n; b++)
+		if (a % 3 == 0 || a % 5 == 0)
 		{
-			c = a * b;
-			if (b == 0)
-			{
-				_putchar(c + '0');
-			}
-			else if (c <= 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(c + '0');
-			}
-			else if (c >= 10 && c < 100)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(c / 10 + '0');
-				_putchar(c % 10 + '0');
-			}
-			else if (c >= 100)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(c / 100 + '0');
-				_putchar(c / 10 % 10 + '0');
-				_putchar(c % 10 + '0');
-			}
+			b += a;
 		}
-		_putchar('\n');
 	}
+	printf("%d\n", b);
+	return (0);
 }
