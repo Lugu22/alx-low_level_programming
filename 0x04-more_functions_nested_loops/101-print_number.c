@@ -6,7 +6,6 @@
  */
 void print_number(int n)
 {
-  
 int a0, a1, a2, a3, a4, a5, a6, a7, a8, a9;  
 int s0, s1, s2, s3, s4, s5, s6, s7, s8;
 a0 = n / 1000000000;
@@ -30,7 +29,7 @@ s8 = s7 + a8;
 a9 = n % 10;
 if (n < 0)
 {
- _putchar('-');
+_putchar('-');
 a0 *= -1;
 a1 *= -1;
 a2 *= -1;
