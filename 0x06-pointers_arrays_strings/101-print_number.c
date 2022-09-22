@@ -1,33 +1,37 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - Entry point
- * Description: adds a line in the code and uses printf
- * Return: 0
+ * print_number - prints an integer
+ * @n: input integer
+ * Return: no return
  */
 
-int main(void)
+void print_number(int n)
 {
-	int n;
-	int a[5];
-	int *p;
+	unsigned int m, d, count;
 
-	a[2] = 1024;
-	p = &n;
+	if (n < 0)
+	{
+		_putchar(45);
+		m = n * -1;
+	}
+	else
+	{
+		m = n;
+	}
 
-	/*
-	 * write your line of code here...
-	 * Remember:
-	 * - you are not allowed to use a
-	 * - you are not allowed to modify p
-	 * - only one statement
-	 * - you are not allowed to code anything else than this line of code
-	 */
+	d = m;
+	count = 1;
 
-	p[5]  = 98;
+	while (d > 9)
+	{
+		d /= 10;
 
-	/* ... so that this prints 98\n */
+		count *= 10;
+	}
 
-	printf("a[2] = %d\n", a[2]);
-	return (0);
+	for (; count >= 1; count /= 10)
+	{
+		_putchar (((m / count) % 10) + 48);
+	}
 }
