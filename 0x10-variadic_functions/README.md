@@ -1,1 +1,2 @@
-More functions variables in C
+Variadic functions
+
