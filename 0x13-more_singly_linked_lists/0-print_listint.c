@@ -16,7 +16,8 @@ size_t print_listint(const listint_t *h)
 		count++;
 	}
 	return (count);
-}#include "lists.h"
+}
+#include "lists.h"
 
 /**
  * print_listint - function to print all elements of list
