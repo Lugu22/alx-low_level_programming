@@ -1,30 +1,34 @@
 #include "lists.h"
 
 /**
- * reverse_listint - Reverses a listint_t list.
- * @head: A pointer to the address of
- * the head of the list_t list.
- *
- * Return: A pointer to the first node of the reversed list.
+ * print_listint_safe - prints a list
+ * @head: pointer to the list
+ * Return: number of nodes
  */
-listint_t *reverse_listint(listint_t **head)
+size_t print_listint_safe(const listint_t *head)
 {
-	listint_t *ahead, *behind;
+	const listint_t *new, *comp;
+	size_t count_new = 0, count_comp = 0;
 
-	if (head == NULL || *head == NULL)
-		return (NULL);
-
-	behind = NULL;
-
-	while ((*head)->next != NULL)
+	new = head;
+	comp = head;
+	while (new != NULL)
 	{
-		ahead = (*head)->next;
-		(*head)->next = behind;
-		behind = *head;
-		*head = ahead;
+		while (count_new > count_comp)
+		{
+			if (new == comp)
+			{
+				printf("-> [%p] %d\n", (void *)new, new->n);
+				return (count_new);
+			}
+			count_comp++;
+			comp = comp->next;
+		}
+		comp = head;
+		count_comp = 0;
+		printf("[%p] %d\n", (void *)new, new->n);
+		count_new++;
+		new = new->next;
 	}
-
-	(*head)->next = behind;
-
-	return (*head);
+	return (count_new);
 }
